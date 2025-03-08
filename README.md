@@ -4,5 +4,5 @@ Este repositório contém uma coleção de projetos e exercícios desenvolvidos 
 
 ## 🚀 Tecnologias Utilizadas
 
-- **Java** (versão X.X)
+- **Java** (versão SE 24)
 - **IDE**: NetBeans
