@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package Lista1;
 
 import java.util.Scanner;
@@ -25,6 +21,8 @@ public class Questao3 {
     
     static int feminino = 0;
     static int masculino = 0;
+    static int idadeTotalFeminino = 0;
+    static int idadeTotalMasculino = 0;
     
     public static class Funcionario {
     String nome;
@@ -59,6 +57,7 @@ public class Questao3 {
         int ano = s.nextInt();
         
         String data = ajustarData(dia, mes, ano);
+        SomarIdade(ano, sexo);
         
         return new Funcionario(nome, sexo, data);
     }
@@ -89,14 +88,40 @@ public class Questao3 {
         return (100 / funcionarios) * masculino;
     }
     
-    public static void main(String[] args) {
-        
-        
+    public static int mediaIdadeFuncionarios(int funcionarios){
+        return (idadeTotalFeminino + idadeTotalMasculino) / funcionarios;
+    }
     
+    public static int mediaIdadeFeminino(){
+        return idadeTotalFeminino / feminino;
+    }
+    
+    public static int mediaIdadeMasculino(){
+        return idadeTotalMasculino / masculino;
+    }
+    
+    public static void SomarIdade(int ano, String sexo) {
+        if (sexo.charAt(0) == 'f' || sexo.charAt(0) == 'F') {
+            idadeTotalFeminino += (2025 - ano);
+        }
+        else if (sexo.charAt(0) == 'm' || sexo.charAt(0) == 'M') {
+            idadeTotalMasculino += (2025 - ano);
+        }
+    }
+    
+    public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         
-        System.out.println("Quantidade de funcionarios a serem cadastrados:");
-        int funcionarios = scan.nextInt();
+        int funcionarios = 0;
+        
+        while (funcionarios < 10){
+            System.out.println("Quantidade de funcionarios a serem cadastrados:");
+            funcionarios = scan.nextInt();
+            
+            if (funcionarios < 10) {
+                System.out.println("O numero de funcionarios deve ser no minimo 10\n");
+            }
+        }
         
         Funcionario[] arrayFuncionarios = new Funcionario[funcionarios];
         
@@ -108,13 +133,13 @@ public class Questao3 {
         }
         
         //Lista dos Funcionarios
-        System.out.println("FUNCIONARIOS:\n\n");
+        System.out.println("FUNCIONARIOS:\n");
         for (int i = 0; i < funcionarios; i++) {
             System.out.println(imprimirFuncionario(arrayFuncionarios[i]));           
         }
         
         //Quantidade de Funcionarios
-        System.out.println(funcionarios + "\n");
+        System.out.println("funcionarios totais: " + funcionarios + "\n");
         
         //Percentual feminino
         System.out.println("A quantidade de funcionarias e de: " + feminino);
@@ -123,5 +148,14 @@ public class Questao3 {
         //Percentual masculino
         System.out.println("A quantidade de funcionarios e de: " + masculino);
         System.out.println("Porcentual de: " + porcentualMasculino(funcionarios) + "%\n");
+        
+        //Idade Media Funcionarios
+        System.out.println("A media de idade dos funcionarios e de: " + mediaIdadeFuncionarios(funcionarios));
+        
+        //Idade Media Feminino
+        System.out.println("\nA media de idade feminina e de: "+ mediaIdadeFeminino());
+        
+        //Idade Media Masculino
+        System.out.println("\nA media de idade masculina e de: "+ mediaIdadeMasculino());
     }
 }
