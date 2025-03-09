@@ -119,7 +119,7 @@ public class Questao3 {
             funcionarios = scan.nextInt();
             
             if (funcionarios < 10) {
-                System.out.println("O numero de funcionarios deve ser no minimo 10\n");
+                System.out.println("O numero de funcionarios deve ser no minimo 10!\n");
             }
         }
         
