@@ -47,6 +47,6 @@ public class Questao5 {
                 flag = true;
             }
         }
-        System.out.printf("A média salarial dessa população é de: %.2f\n", calcularMediaSalario());
+        System.out.printf("A media salarial dessa populacao e de: %.2f\n", calcularMediaSalario());
     }
 }
