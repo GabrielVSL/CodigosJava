@@ -19,21 +19,6 @@ public class Questao7 {
         }
     }
     
-    public static void ordenarConjunto(int conjunto[][], int tamanho) {
-        for (int i = 0; i < tamanho; i++) {
-            for (int j = 0; j < 2; j++) {  
-                for (int k = 0; k < 2 - j; k++) {  
-                    if (conjunto[i][k] > conjunto[i][k + 1]) {
-                        // Troca os valores
-                        int temp = conjunto[i][k];
-                        conjunto[i][k] = conjunto[i][k + 1];
-                        conjunto[i][k + 1] = temp;
-                    }
-                }
-            }
-        }
-    }
-    
     public static int[] somarConjuntos(int conjunto[][], int tamanho) {
         int soma[] = new int [tamanho];
         for (int i = 0; i < tamanho; i++) {
@@ -42,8 +27,16 @@ public class Questao7 {
         return soma;
     }
     
+    public static int[] inverterConjunto(int vetor[], int tamanho) {
+        int[] invertido = new int[tamanho];
+        for (int i = 0; i < tamanho; i++) {
+            invertido[i] = vetor[tamanho - 1 - i];
+        }
+        return invertido;
+    }
+    
     public static void imprimirConjunto(int conjunto[], int tamanho) {
-            System.out.println("| Soma |");
+            System.out.println("| Soma ao contrário |");
             for (int j = 0; j < tamanho; j++) {
                 System.out.print(conjunto[j] + " ");
             }
@@ -53,17 +46,17 @@ public class Questao7 {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         
-        scan.nextLine();
         System.out.println("Qual vai ser o tamanho do conjunto?");
         int tamanho = scan.nextInt();
-        scan.nextLine();
         
         int conjunto[][] = new int [2][tamanho];
         
         receberNumeros(conjunto, tamanho, scan);
-        ordenarConjunto(conjunto, tamanho);
+        
         int soma[] = somarConjuntos(conjunto, tamanho);
-        imprimirConjunto(soma, tamanho);
-        scan.close();
+        
+        int somaInvertida[] = inverterConjunto(soma, tamanho);
+        
+        imprimirConjunto(somaInvertida, tamanho);
     }
 }
