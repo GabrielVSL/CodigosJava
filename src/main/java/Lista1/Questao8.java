@@ -4,6 +4,8 @@
  */
 package Lista1;
 
+import java.util.Scanner;
+
 /*    Matriz
     5  10 7  8
     13 4  1  3
@@ -49,7 +51,45 @@ public class Questao8 {
         return somaTotal;
     }
     
+    public static int[][] multiplicarPorConstante(int matriz[][], int constante) {
+        int novaMatriz[][] = new int[4][4];
+        for (int i = 0; i < 4; i++) {
+            for (int j = 0; j < 4; j++) {
+                novaMatriz[i][j] = matriz[i][j] * constante;
+            }
+        }
+        return novaMatriz;
+    }
+    
+    public static int[][] trocarLinhaColuna(int matriz[][]) {
+        int novaMatriz[][] = new int[4][4];
+
+        
+        for (int i = 0; i < 4; i++) {
+            System.arraycopy(matriz[i], 0, novaMatriz[i], 0, 4);
+        }
+        
+        for (int i = 0; i < 4; i++) {
+            int temp = novaMatriz[2][i]; 
+            novaMatriz[2][i] = novaMatriz[i][2]; 
+            novaMatriz[i][2] = temp; 
+        }
+
+        return novaMatriz;
+    }
+    
+    public static void imprimirMatriz(int matriz[][]) {
+        for (int i = 0; i < 4; i++) {
+            for (int j = 0; j < 4; j++) {
+                System.out.print(matriz[i][j] + " ");
+            }
+            System.out.println();
+        }
+    }
+    
     public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        
         int matriz[][] = new int [4][4];
         matriz [0] = new int[] {5,10,7,8};
         matriz [1] = new int[] {13,4,1,3};
@@ -63,5 +103,18 @@ public class Questao8 {
         System.out.println(" ");
         
         System.out.println("A soma dos quadrados da diagonal secundaria e igual a" + quadradoDiagonalSecundaria(matriz));
+        
+        System.out.print("\nDigite a constante para multiplicar a matriz: ");
+        int constante = scan.nextInt();
+        
+        System.out.println("\nMatriz multiplicada por " + constante + ":");
+        imprimirMatriz(multiplicarPorConstante(matriz, constante));
+        
+        System.out.println("\nMatriz após troca da 3ª linha com a 3ª coluna:");
+        imprimirMatriz(trocarLinhaColuna(matriz));
+
+        scan.close();
+        
+        
     }
 }
