@@ -16,7 +16,7 @@ public class Main {
             System.out.println("--- MENU ---");
             System.out.println("1 - Adivinhe o numero");
             System.out.println("2 - Adivinhe o numero");
-            System.out.println("3 - Adivinhe o numero");
+            System.out.println("3 - Suporte Tecnico");
             System.out.println("4 - Sair\n");
             System.out.println("Digite sua opcao:");
             jogo = scan.nextInt();
@@ -25,7 +25,7 @@ public class Main {
                     break;
                 case 2: 
                     break;
-                case 3: 
+                case 3: SuporteTecnico.Jogo();
                     break;
                 case 4:
                     System.out.println("Saindo...");
