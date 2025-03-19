@@ -1,14 +1,10 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package DesafioJava;
 
 import java.util.Scanner;
 
 /**
- *
- * @author Tecnologia
+
  */
 public class Main {
     
@@ -30,6 +26,9 @@ public class Main {
                 case 2: 
                     break;
                 case 3: 
+                    break;
+                case 4:
+                    System.out.println("Saindo...");
                     break;
                 default: System.out.println("Numero incorreto, digite novamnete uma das opcoes validas!");
             }
